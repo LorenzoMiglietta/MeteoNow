@@ -6,6 +6,7 @@
     --grey3: #FCFCFC;
     --greyDark: #545454;
     --red: #CB6B6B;
+    --blue: #6BA3CB;
 }
 
 *{
@@ -18,6 +19,15 @@ h1,h2,h3{
     display: inline-block;
     width: fit-content;
 }
+
+.color-red{
+    color: var(--red);
+}
+
+.color-blue{
+    color: var(--blue);
+}
+
 
 /* Header */
 
@@ -139,6 +149,7 @@ h1,h2,h3{
 .grid .card h3{
     font-family: 'Anton', sans-serif;
     font-size: 15px;
+    padding: 0 30px;
 }
 
 .grid .card img{
@@ -146,10 +157,17 @@ h1,h2,h3{
     width: 90px;
 }
 
-.grid .card p{
+.giorno-icona{
+    display: flex;
+    align-items: center;
+}
+
+.descrizione-meteo p{
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: var(--greyDark);
     font-size: 12px;
-    line-height: 15px;
+    margin:0 0 8px 13px;
 }
 
 /* ========================================= */
