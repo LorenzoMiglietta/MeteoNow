@@ -219,6 +219,27 @@ h1,h2,h3{
 
 /* Footer */
 
+footer .links{
+    height: 32px;
+    width: 100%;
+    background-color: var(--grey1);
+    display: flex;
+    justify-content: center;
+}
+
+footer .links p,a{
+    font-family: 'Anton', sans-serif;
+    font-size: 15px;
+    color: var(--red);
+    text-align: center;
+    vertical-align: super;
+    padding: 0 1rem;
+}
+
+footer .links a{
+    text-decoration: none;
+}
+
 
 /* MEDIA QUERY */
 
