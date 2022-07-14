@@ -5,15 +5,10 @@ const weekDate = require(__dirname+"/my-modules/date.js")
 const bodyParser = require("body-parser");
 
 const app = express();
+
 app.use(bodyParser.urlencoded({extended:true}));
-app.set('view engine', "ejs");
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 3000;
-}
-
 app.use(express.static(__dirname + '/public'));
+app.set('view engine', "ejs");
 
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/public/html/index.html');
@@ -56,6 +51,6 @@ app.post('/', (req, res) => {
     res.redirect("/");
 });
 
-app.listen(port, () => {
-    console.log("Server started on port", port);
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Server started");
 })
