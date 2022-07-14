@@ -15,7 +15,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-    
+    let city = "milano";
+    // var str="http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=e06672eb3d022cf9dbdffb18d384e515";
+    axios
+        .get("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=e06672eb3d022cf9dbdffb18d384e515")
+        .then(res => {
+            console.log(`statusCode: ${res.status}`);
+            console.log(res);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 });
 
 app.listen(port, () => {
