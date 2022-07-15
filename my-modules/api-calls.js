@@ -3,25 +3,34 @@
 // var str="http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=e06672eb3d022cf9dbdffb18d384e515";
 
 const axios = require('axios');
+const bodyParser = require("body-parser");
+const e = require('express');
+const weekDate = require(__dirname + "/date.js")
 
-exports.getMeteo = (city) => {
+exports.getMeteo = (res,city,counter) => {
+    var data = weekDate.getWeekData();
     axios.get("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=adcb01a998523a982c8f04bd3e13e248")
-        .then(res => {
+        .then(response => {
             // console.log(`statusCode: ${res.status}`);
-            // console.log(res);
-            var lat = res.data[0].lat.toPrecision(5);
-            var lon = res.data[0].lon.toPrecision(5);
-            // console.log(lat, lon);
-            https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid={API key}
-            axios.get("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=hourly,current,minutely&appid=adcb01a998523a982c8f04bd3e13e248")
+            if (typeof response.data[0] === 'undefined'){
+                res.render("error404", {
+                });
+            }else{
+                var lat = response.data[0].lat.toPrecision(5);
+                var lon = response.data[0].lon.toPrecision(5);
+                axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
                 .then(giorni => {
-                    // console.log(`statusCode: ${res.status}`);
-                    // console.log(giorni)
-                    return giorni.data.daily;
+                    res.render("meteo", {
+                        giorni: giorni.data.daily,
+                        data: data,
+                        city:city,
+                        counter:counter
+                    });
                 })
                 .catch(error => {
                     console.error(error);
                 });
+            }
         })
         .catch(error => {
             console.error(error);

@@ -22,4 +22,20 @@ imgElements.forEach(imageElement => {
   ImageLoaderWorker.postMessage(imageURL)
 })
 
+var localCounter = document.getElementById("counter-local");
+localCounter.innerText = localStorage.getItem("counter");
+
+function updateCounter(){
+  let counter = localStorage.getItem("counter");
+  if (counter == null){
+    console.log("creato");
+    localStorage.setItem("counter", 1);
+  }else{
+    counter++;
+    console.log("aggiornato");
+    localStorage.setItem('counter', counter);
+  }
+  console.log(localStorage.getItem("counter"));
+}
+
 // ===========================================================
