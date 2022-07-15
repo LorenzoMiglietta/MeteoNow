@@ -3,14 +3,24 @@ const meteo = require(__dirname + "/my-modules/api-calls.js");
 const axios = require('axios');
 const weekDate = require(__dirname + "/my-modules/date.js")
 const bodyParser = require("body-parser");
+const telegramBot = require('node-telegram-bot-api');
+require('dotenv').config();
 
 const app = express();
+
+// Telegram bot
+const telegramTOKEN = process.env.TOKEN;
+const bot = new telegramBot(telegramTOKEN, { polling: true });
+
+bot.on("message",async (message) => {
+    meteo.sendMeteoBot(bot, message)
+});
+
+// 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', "ejs");
-
-
 
 var counter = 0;
 
