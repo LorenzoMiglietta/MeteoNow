@@ -57,6 +57,11 @@ exports.sendMeteoBot = (bot, message) =>{
                     "Description: " + giorno.data.daily[0].weather[0].description + "\n" + 
                     "Max temperature : " + giorno.data.daily[0].temp.max + "\n" + 
                     "Min temperature: " + giorno.data.daily[0].temp.min;
+                    bot.sendPhoto({
+                        chat_id: chat_id,
+                        caption: str,
+                        photo: 'https://openweathermap.org/img/wn/10d@2x.png'
+                    })
                     bot.sendMessage(chat_id, str);
                 })
                 .catch(error => {
