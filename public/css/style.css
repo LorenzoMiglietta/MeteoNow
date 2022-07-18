@@ -28,6 +28,9 @@ h1,h2,h3{
     color: var(--blue);
 }
 
+.color-darkGrey{
+    color: var(--greyDark);
+}
 
 /* Header */
 
@@ -93,27 +96,28 @@ h1,h2,h3{
 
 .search-bar form{
     width: 80%;
-    height: 41px;
+    /* height: 41px; */
     display: flex;
 }
 
 .search-bar{
     display: flex;
-    height: 41px;
+    height: 30px;
     margin: auto;
     margin-bottom: 5rem;
     justify-content: center;
 }
 
 .search-bar input{
-    flex: 1;
+    flex: auto;
     border: none;
     outline: none;
     background-color: var(--grey2);
-    height: 41px;
-    font-size: 22px;
+    height: 30px;
+    font-size: 20px;
     padding-left: 10px;
     color: var(--red);
+    width: 0;
 }
 
 .search-bar button{
@@ -122,8 +126,8 @@ h1,h2,h3{
     border: none;
     outline: none;
     cursor: pointer;
-    height: 41px;
-    font-size: 20px;
+    height: 30px;
+    font-size: 16px;
     font-family: 'Anton', sans-serif;
     color: var(--greyDark);
     align-items: center;
@@ -132,7 +136,7 @@ h1,h2,h3{
 .search-bar input::placeholder {
     opacity: .48;
     color: var(--red);
-    font-size: 22px;
+    font-size: 20px;
 }
 
 /* ----------------------------------------------------- */
@@ -165,9 +169,10 @@ h1,h2,h3{
 
 .grid .card h3{
     font-family: 'Anton', sans-serif;
-    font-size: 15px;
-    padding: 0 30px;
+    font-size: 18px;
+    padding: 0 15px;
 }
+
 
 .grid .card img{
     height: 90px;
@@ -222,20 +227,21 @@ h1,h2,h3{
 
 
 .newsletter input{
-    flex: 1;
+    flex: auto;
     border: none;
     outline: none;
     background-color: var(--grey2);
     height: 22px;
-    font-size: 13px;
+    font-size: 10px;
     padding-left: 10px;
     color: var(--red);
+    width: 0;
 }
 
 .newsletter input::placeholder {
     opacity: .48;
     color: var(--red);
-    font-size: 13px;
+    font-size: 10px;
 }
 
 .newsletter button{
@@ -246,7 +252,7 @@ h1,h2,h3{
     cursor: pointer;
     height: 22px;
     width: fit-content;
-    font-size:15px;
+    font-size:12px;
     font-family: 'Anton', sans-serif;
     color: var(--greyDark);
     align-items: center;
@@ -254,7 +260,7 @@ h1,h2,h3{
 
 .counter {
     width: fit-content;
-    margin: auto;
+    margin: 1rem auto;
     text-align-last: center;
     color: var(--red);
     font-family: 'Anton', sans-serif;
@@ -288,10 +294,9 @@ footer .links a{
 
 /* MEDIA QUERY */
 
+
+
 @media (min-width: 450px) {
-    .grid{
-        grid-template-columns: repeat(1, 1fr);
-    }
 
 }   
 
@@ -306,19 +311,30 @@ footer .links a{
 
     .search-bar form{
         width: 60%;
+        height: 41px;
     }
 
     .search-bar button{
+        height: 41px;
         padding: 0 50px;
+        font-size: 22px;
+    }
+
+    .search-bar input{
+        height: 41px;
+        font-size: 22px;
     }
 
     .search-bar{
         margin-bottom: 10rem;
     }
 
+    .search-bar input::placeholder {
+        font-size: 22px;
+    }
+
     .grid .card h3{
-        font-family: 'Anton', sans-serif;
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .grid .card img{
@@ -327,15 +343,25 @@ footer .links a{
     }
 
     .grid .card p{
-        font-family: 'Anton', sans-serif;
-        font-size: 14px;
+        font-size: 1rem;
     }
 
     .grid .card{
         width: 307px;
         height: 251px;
         border-radius: 43px;
+        padding-left: 30px;
     }
+
+    .newsletter input{
+        flex: auto;
+        font-size: 12px;
+    }
+    
+    .newsletter input::placeholder {
+        font-size: 12px;
+    }
+    
 }
 
 @media (min-width: 1450px) {

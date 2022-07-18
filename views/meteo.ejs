@@ -47,7 +47,7 @@
               <div class="giorno-icona">
                 <h3 class="giorno">
                   <span class="color-red"><%=data[i].stringa%></span><br />
-                  <span class="color-blue"><%=data[i].giorno%></span>/<span
+                  <span class="color-blue"><%=data[i].giorno%></span><span class="color-darkGrey">/</span><span
                     class="color-blue"
                     ><%=data[i].mese%></span
                   >
@@ -60,19 +60,19 @@
               </div>
               <div class="descrizione-meteo">
                 <p class="card-descrizione">
-                  Description:<%= giorni[i].weather[0].description %>
+                  Descrizione: <%= giorni[i].weather[0].description %>
                 </p>
 
                 <p class="card-maxTemp">
-                  Max Temperature:
+                  Temperatura massima:
                   <span class="color-red"
-                    ><%= Math.trunc(giorni[i].temp.max) %></span
+                    ><%= Math.trunc(giorni[i].temp.max) %> C°</span
                   >
                 </p>
                 <p class="card-minTemp">
-                  Min Temperature:
+                  Temperatura minima:
                   <span class="color-blue"
-                    ><%= Math.trunc(giorni[i].temp.min) %></span
+                    ><%= Math.trunc(giorni[i].temp.min) %> C°</span
                   >
                 </p>
               </div>
@@ -84,14 +84,15 @@
       <section name="newsletter">
         <div class="newsletter">
           <h2>Iscriviti alla Newsletter</h2>
-          <form action="/" method="post">
+          <form action="/subscribe" method="post">
             <input
               type="email"
               name="email"
-              id=""
+              id="email"
               placeholder="yourmail@domain.xxx"
+              required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             />
-            <button type="submit">Sign up</button>
+            <button id = "cta" type="submit">Sign up</button>
           </form>
         </div>
       </section>

@@ -22,6 +22,9 @@ imgElements.forEach(imageElement => {
   ImageLoaderWorker.postMessage(imageURL)
 })
 
+
+// =======================================================
+
 var localCounter = document.getElementById("counter-local");
 localCounter.innerText = localStorage.getItem("counter");
 
@@ -37,5 +40,3 @@ function updateCounter(){
   }
   console.log(localStorage.getItem("counter"));
 }
-
-// ===========================================================

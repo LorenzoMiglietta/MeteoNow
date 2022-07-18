@@ -1,20 +1,23 @@
 const express = require("express");
 const meteo = require(__dirname + "/my-modules/api-calls.js");
-const axios = require('axios');
 const weekDate = require(__dirname + "/my-modules/date.js")
+// const request = require ('request')
+const axios = require('axios');
+// const path = require('path')
 const bodyParser = require("body-parser");
 const telegramBot = require('node-telegram-bot-api');
+const { response } = require("express");
 require('dotenv').config();
 
 const app = express();
 
 // Telegram bot
-// const telegramTOKEN = process.env.TOKEN;
-// const bot = new telegramBot(telegramTOKEN, { polling: true });
+const telegramTOKEN = process.env.TOKEN;
+const bot = new telegramBot(telegramTOKEN, { polling: true });
 
-// bot.on("message",async (message) => {
-//     meteo.sendMeteoBot(bot, message)
-// });
+bot.on("message",async (message) => {
+    meteo.sendMeteoBot(bot, message)
+});
 
 // 
 
@@ -50,8 +53,6 @@ app.post('/', async (req, res) => {
         await meteo.getMeteo(res, city, counter);
     }
 });
-
-
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server started");

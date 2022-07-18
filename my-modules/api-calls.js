@@ -20,7 +20,7 @@ exports.getMeteo = (res,city,counter) => {
             }else{
                 var lat = response.data[0].lat.toPrecision(5);
                 var lon = response.data[0].lon.toPrecision(5);
-                axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
+                axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&lang=it&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
                 .then(giorni => {
                     res.render("meteo", {
                         giorni: giorni.data.daily,
@@ -51,17 +51,12 @@ exports.sendMeteoBot = (bot, message) =>{
             }else{
                 var lat = response.data[0].lat.toPrecision(5);
                 var lon = response.data[0].lon.toPrecision(5);
-                axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
+                axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&lang=it&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
                 .then(giorno => {
                     var str = "The weather of " + city + " is:\n" +
                     "Description: " + giorno.data.daily[0].weather[0].description + "\n" + 
                     "Max temperature : " + giorno.data.daily[0].temp.max + "\n" + 
                     "Min temperature: " + giorno.data.daily[0].temp.min;
-                    bot.sendPhoto({
-                        chat_id: chat_id,
-                        caption: str,
-                        photo: 'https://openweathermap.org/img/wn/10d@2x.png'
-                    })
                     bot.sendMessage(chat_id, str);
                 })
                 .catch(error => {
