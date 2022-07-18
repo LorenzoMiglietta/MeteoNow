@@ -54,9 +54,11 @@ exports.sendMeteoBot = (bot, message) =>{
                 axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&lang=it&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
                 .then(giorno => {
                     var str = "The weather of " + city + " is:\n" +
-                    "Description: " + giorno.data.daily[0].weather[0].description + "\n" + 
-                    "Max temperature : " + giorno.data.daily[0].temp.max + "\n" + 
-                    "Min temperature: " + giorno.data.daily[0].temp.min;
+                    "Descrizione: " + giorno.data.daily[0].weather[0].description + "\n" + 
+                    "Temperatura massima : " +  Math.trunc(giorno.data.daily[0].temp.max) + " C° \n" + 
+                    "Temperatura minima: " + Math.trunc(giorno.data.daily[0].temp.min)+ "C° \n"
+                    "Per ulteriori informazioni sul meteo della settimana visita questo sito: \n"
+                    "https://meteo-now-progweb.herokuapp.com/"+city;
                     bot.sendMessage(chat_id, str);
                 })
                 .catch(error => {
