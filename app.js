@@ -12,8 +12,8 @@ require('dotenv').config();
 const app = express();
 
 // Telegram bot
-const telegramTOKEN = process.env.TOKEN;
-const bot = new telegramBot(telegramTOKEN, { polling: true });
+// const telegramTOKEN = process.env.TOKEN;
+// const bot = new telegramBot(telegramTOKEN, { polling: true });
 
 // bot.on("message",async (message) => {
 //     meteo.sendMeteoBot(bot, message)
