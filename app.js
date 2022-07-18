@@ -25,11 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', "ejs");
 
-var counter = 0;
-
 app.get("/", async (req, res) => {
     let city = "Milano";
-    await meteo.getMeteo(res, city, counter);
+    await meteo.getMeteo(res, city);
 });
 
 app.get("/no-city", (req, res) => {
@@ -39,8 +37,7 @@ app.get("/no-city", (req, res) => {
 app.get('/:city', async (req, res) => {
     let city = req.params.city;
     if (city != "favicon.ico") {
-        counter++;
-        await meteo.getMeteo(res, city, counter);
+        await meteo.getMeteo(res, city);
     }
 })
 
@@ -49,8 +46,7 @@ app.post('/', async (req, res) => {
     if (city === "") {
         res.redirect("/");
     } else {
-        counter++;
-        await meteo.getMeteo(res, city, counter);
+        await meteo.getMeteo(res, city);
     }
 });
 

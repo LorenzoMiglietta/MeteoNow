@@ -56,8 +56,8 @@ exports.sendMeteoBot = (bot, message) =>{
                     var str = "Il meteo di " + city + " e':\n" +
                     "Descrizione: " + giorno.data.daily[0].weather[0].description + "\n" + 
                     "Temperatura massima : " +  Math.trunc(giorno.data.daily[0].temp.max) + " C° \n" + 
-                    "Temperatura minima: " + Math.trunc(giorno.data.daily[0].temp.min)+ "C° \n"
-                    "Per ulteriori informazioni sul meteo della settimana visita questo sito: \n"
+                    "Temperatura minima: " + Math.trunc(giorno.data.daily[0].temp.min)+ "C° \n" +
+                    "Per ulteriori informazioni sul meteo della settimana visita questo sito: \n" +
                     "https://meteo-now-progweb.herokuapp.com/"+city;
                     bot.sendMessage(chat_id, str);
                 })

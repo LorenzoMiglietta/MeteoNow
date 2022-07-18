@@ -216,47 +216,25 @@ h1,h2,h3{
     text-align: center;
 }
 
-.newsletter form{
-    width: 50%;
-    height: 22px;
-    display: flex;
-    text-align: center;
-    justify-content: ceneter;
+.newsletter a{
     margin: auto;
+    margin-bottom: 3rem;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
 }
 
-
-.newsletter input{
-    flex: auto;
-    border: none;
-    outline: none;
-    background-color: var(--grey2);
-    height: 22px;
-    font-size: 10px;
-    padding-left: 10px;
-    color: var(--red);
-    width: 0;
-}
-
-.newsletter input::placeholder {
-    opacity: .48;
-    color: var(--red);
-    font-size: 10px;
-}
-
-.newsletter button{
-    padding: 0 10px;
+.newsletter p{
     background-color: var(--red);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    height: 22px;
-    width: fit-content;
-    font-size:12px;
-    font-family: 'Anton', sans-serif;
     color: var(--greyDark);
-    align-items: center;
-} 
+    width: fit-content;
+    margin: auto;
+    padding: 0.5rem;
+}
+
+
+
+
 
 .counter {
     width: fit-content;
@@ -351,15 +329,6 @@ footer .links a{
         height: 251px;
         border-radius: 43px;
         padding-left: 30px;
-    }
-
-    .newsletter input{
-        flex: auto;
-        font-size: 12px;
-    }
-    
-    .newsletter input::placeholder {
-        font-size: 12px;
     }
     
 }
