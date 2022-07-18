@@ -47,13 +47,13 @@ exports.sendMeteoBot = (bot, message) =>{
     axios.get("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=adcb01a998523a982c8f04bd3e13e248")
         .then(response => {
             if (response.data[0] === undefined){
-                bot.sendMessage(chat_id, "This city does not exist!")
+                bot.sendMessage(chat_id, "La citta' indicata non esiste!")
             }else{
                 var lat = response.data[0].lat.toPrecision(5);
                 var lon = response.data[0].lon.toPrecision(5);
                 axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,current,minutely&lang=it&units=metric&appid=adcb01a998523a982c8f04bd3e13e248")
                 .then(giorno => {
-                    var str = "The weather of " + city + " is:\n" +
+                    var str = "Il meteo di " + city + " e':\n" +
                     "Descrizione: " + giorno.data.daily[0].weather[0].description + "\n" + 
                     "Temperatura massima : " +  Math.trunc(giorno.data.daily[0].temp.max) + " C° \n" + 
                     "Temperatura minima: " + Math.trunc(giorno.data.daily[0].temp.min)+ "C° \n"

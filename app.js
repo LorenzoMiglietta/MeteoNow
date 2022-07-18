@@ -15,9 +15,9 @@ const app = express();
 const telegramTOKEN = process.env.TOKEN;
 const bot = new telegramBot(telegramTOKEN, { polling: true });
 
-bot.on("message",async (message) => {
-    meteo.sendMeteoBot(bot, message)
-});
+// bot.on("message",async (message) => {
+//     meteo.sendMeteoBot(bot, message)
+// });
 
 // 
 
