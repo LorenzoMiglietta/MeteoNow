@@ -9,11 +9,10 @@ const weekDate = require(__dirname + "/date.js")
 const telegramBot = require('node-telegram-bot-api');
 
 
-exports.getMeteo = (res,city,counter) => {
+exports.getMeteo = (res,city) => {
     var data = weekDate.getWeekData();
     axios.get("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=adcb01a998523a982c8f04bd3e13e248")
         .then(response => {
-            // console.log(`statusCode: ${res.status}`);
             if (typeof response.data[0] === 'undefined'){
                 res.render("error404", {
                 });
@@ -26,7 +25,6 @@ exports.getMeteo = (res,city,counter) => {
                         giorni: giorni.data.daily,
                         data: data,
                         city:city,
-                        counter:counter
                     });
                 })
                 .catch(error => {
